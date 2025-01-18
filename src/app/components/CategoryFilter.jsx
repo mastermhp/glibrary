@@ -34,7 +34,7 @@ export function CategoryFilter({ categories, selectedCategory, onSelectCategory,
               className={`
                 ${selectedCategory === category 
                   ? 'bg-amber-400 text-slate-900 hover:bg-amber-500' 
-                  : 'text-white hover:bg-slate-700'}
+                  : 'text-slate-900 hover:bg-slate-700'}
                 truncate
               `}
             >
