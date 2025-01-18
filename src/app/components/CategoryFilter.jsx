@@ -16,7 +16,7 @@ export function CategoryFilter({ categories, selectedCategory, onSelectCategory,
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
-        className="bg-slate-800 rounded-lg p-6 w-full max-w-md"
+        className="bg-slate-800 rounded-lg p-6 w-full max-w-xl"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-between items-center mb-4">
@@ -25,16 +25,16 @@ export function CategoryFilter({ categories, selectedCategory, onSelectCategory,
             <X className="h-6 w-6 text-slate-400" />
           </Button>
         </div>
-        <div className="grid grid-cols-2 gap-2 max-h-[60vh] overflow-y-auto">
+        <div className="md:grid grid-cols-2 gap-2 max-h-[60vh] overflow-y-auto">
           {categories.map(category => (
             <Button
               key={category}
               variant={selectedCategory === category ? "default" : "outline"}
               onClick={() => onSelectCategory(category)}
-              className={`
+              className={`m-1
                 ${selectedCategory === category 
                   ? 'bg-amber-400 text-slate-900 hover:bg-amber-500' 
-                  : 'text-slate-900 hover:bg-slate-700'}
+                  : 'text-slate-900 hover:bg-slate-700 hover:text-white'}
                 truncate
               `}
             >
