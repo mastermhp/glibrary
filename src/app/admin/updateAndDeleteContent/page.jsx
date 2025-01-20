@@ -211,7 +211,7 @@ export default function Update() {
         }
         className="bg-slate-700 text-white border-slate-600"
       />
-      {/* <div>
+      <div>
         <label className="block text-sm font-medium text-gray-300 mb-1">
           Thumbnail
         </label>
@@ -229,7 +229,7 @@ export default function Update() {
             </p>
           )}
         </div>
-      </div> */}
+      </div>
       <Input
         placeholder="Category"
         value={content.category}
