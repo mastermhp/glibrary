@@ -4,11 +4,15 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { Layers, Users, Settings, LogOut } from "lucide-react";
+import { Layers, Users, Settings,  Grid, Hash } from "lucide-react";
 import "../custom-styles.css";
 
 const navItems = [
-  { icon: Layers, label: "Content", href: "/admin" },
+  // { icon: Layers, label: "Add Content", href: "/admin" },
+  { icon: Layers, label: "All Content", href: "/admin/allContents" },
+  { icon: Layers, label: "Update Content", href: "/admin" },
+  { icon: Grid, label: "Categories", href: "/admin/categories" },
+  { icon: Hash, label: "Hashtags", href: "/admin/hashtags" },
   { icon: Users, label: "Users", href: "/admin/users" },
   { icon: Settings, label: "Settings", href: "/admin/settings" },
 ];
@@ -67,18 +71,8 @@ export default function AdminLayout({ children }) {
             ))}
           </ul>
         </nav>
-        {/* <button className="flex items-center p-2 text-gray-300 hover:text-white">
-          <LogOut className="w-6 h-6 mr-2" />
-          <motion.span
-            initial={{ opacity: 1 }}
-            animate={{ opacity: isSidebarOpen ? 1 : 0 }}
-          >
-            Logout
-          </motion.span>
-        </button> */}
       </motion.aside>
       <main className="flex-1 p-8 overflow-auto">
-      
         <div className="max-w-4xl mx-auto">{children}</div>
       </main>
     </div>

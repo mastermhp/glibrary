@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { addContent } from "../../../lib/api";
 import { getCurrentUser } from "../../../lib/auth";
 import AdminPanel from "../components/AdminPanel";
+import Update from "./updateAndDeleteContent/page";
 
 export default function AdminPage() {
 
@@ -36,6 +37,6 @@ export default function AdminPage() {
  
 
   return (
-    <AdminPanel/>
+    <Update/>
   );
 }

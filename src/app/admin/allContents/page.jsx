@@ -1,3 +1,30 @@
+// "use client"
+// import { ContentGrid } from "@/app/components/ContentGrid"
+// import { getPublishedContents } from "../../../../lib/api"
+
+// export default async function Contents() {
+//   const getPublishedContents = await getPublishedContents()
+
+//   return (
+//     <div className="min-h-screen neon-background">
+//       <div className="content-container">
+//         <header className="pt-8 pb-6 px-4">
+//           <div className="max-w-7xl mx-auto text-center">
+//             <h1 className="text-3xl font-bold text-white mb-2">
+//               Assets Catalogue
+//               <span className="text-red-400 ml-2">(V5)</span>
+//             </h1>
+//           </div>
+//         </header>
+
+//         {/* <main className="max-w-7xl mx-auto px-4 pb-20"> */}
+//           <ContentGrid contents={getPublishedContents} />
+//         </main>
+//       </div>
+//     </div>
+//   )
+// }
+
 'use client'
 
 import { useState, useCallback, useMemo, useEffect } from 'react'
@@ -11,21 +38,25 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import './custom-styles.css'
-import { CategoryFilter } from './components/CategoryFilter'
-import { categories } from './data/categories'
-import { hashtags } from './data/hashtags'
-import { HashtagFilter } from './components/HashtagFilter'
-import { ContentGrid } from './components/ContentGrid'
-import { getPublishedContents } from '../../lib/api'
+import '../../../app/custom-styles.css'
+// import { CategoryFilter } from './components/CategoryFilter'
+// import { hashtags } from './data/hashtags'
+// import { HashtagFilter } from './components/HashtagFilter'
+// import { ContentGrid } from './components/ContentGrid'
+// import { getPublishedContents } from '../../lib/api'
+import { CategoryFilter } from '@/app/components/CategoryFilter'
+import { hashtags } from '@/app/data/hashtags'
+import { HashtagFilter } from '@/app/components/HashtagFilter'
+import { ContentGrid } from '@/app/components/ContentGrid'
+import { getPublishedContents } from '../../../../lib/api'
 
-export default function Home() {
+export default function Contents() {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedHashtags, setSelectedHashtags] = useState([])
   const [sortType, setSortType] = useState('newest')
   const [showHashtagFilter, setShowHashtagFilter] = useState(false)
   const [contents, setContents] = useState([])
-  // const [categories] = useState(['All', 'Technology', 'Design', 'Business', 'Lifestyle'])
+  const [categories] = useState(['All', 'Technology', 'Design', 'Business', 'Lifestyle'])
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [showCategoryFilter, setShowCategoryFilter] = useState(false)
   const [contentVersion, setContentVersion] = useState(0)
