@@ -121,6 +121,7 @@
 
 "use client";
 
+
 import { useState } from "react";
 import { ArrowLeft, Download, File, Image, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -291,3 +292,5 @@ export function ContentDetails({ content }) {
     </div>
   );
 }
+
+
