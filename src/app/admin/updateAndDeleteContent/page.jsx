@@ -115,13 +115,16 @@ export default function Update() {
       const formData = new FormData();
       Object.entries(editingContent).forEach(([key, value]) => {
         if (Array.isArray(value)) {
-          value.forEach((item) => formData.append(key, item));
+          value.forEach((item) => formData.append(key, item instanceof File ? item : item.url || item));
         } else if (value instanceof File) {
           formData.append(key, value);
+        } else if (value && typeof value === "object") {
+          formData.append(key, value.url || JSON.stringify(value));
         } else {
           formData.append(key, value);
         }
       });
+      
   
       const response = await updateContent(editingContent.id, formData);
       console.log("Update Response:", response);
@@ -169,10 +172,15 @@ export default function Update() {
           <input {...getThumbnailInputProps()} />
           <p className="text-gray-300">Drag 'n' drop a thumbnail image here, or click to select one</p>
           {content.thumbnail && (
-            <p className="text-gray-300 mt-2">
-              {content.thumbnail instanceof File ? content.thumbnail.name : content.thumbnail}
-            </p>
+          <p className="text-gray-300 mt-2">
+          {content.thumbnail instanceof File
+            ? content.thumbnail.name
+            : typeof content.thumbnail === "object" && content.thumbnail.name
+            ? content.thumbnail.name
+            : content.thumbnail}
+          </p>
           )}
+
         </div>
       </div>
       <Input
@@ -198,7 +206,13 @@ export default function Update() {
           {content.images && content.images.length > 0 && (
             <ul className="mt-2 text-gray-300">
               {content.images.map((file, index) => (
-                <li key={index}>{file instanceof File ? file.name : file}</li>
+                <li key={index}>
+                  {file instanceof File
+                    ? file.name
+                    : typeof file === "object" && file.name
+                    ? file.name
+                    : file}
+                </li>
               ))}
             </ul>
           )}

@@ -1,3 +1,4 @@
+//src/app/api/contents/route.js
 import { NextResponse } from "next/server"
 import { getCollection } from "../../../../lib/db"
 // import { getCollection } from "@/lib/db"
@@ -15,8 +16,6 @@ export async function POST(request) {
           name: value.name,
           type: value.type,
           size: value.size,
-          // In a real application, you'd upload this to a file storage service
-          // and store the URL. For now, we'll just store some metadata.
           url: `https://fake-storage.com/${value.name}`,
         }
       } else if (key === "hashtags" || key === "permissions") {
