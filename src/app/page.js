@@ -17,7 +17,7 @@ import { categories } from './data/categories'
 import { hashtags } from './data/hashtags'
 import { HashtagFilter } from './components/HashtagFilter'
 import { ContentGrid } from './components/ContentGrid'
-import { getPublishedContents } from '../../lib/api'
+import { getAllContents } from '../../lib/api'
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -32,7 +32,7 @@ export default function Home() {
 
   useEffect(() => {
     const fetchContents = async () => {
-      const fetchedContents = await getPublishedContents()
+      const fetchedContents = await getAllContents()
       setContents(fetchedContents)
     }
     fetchContents()

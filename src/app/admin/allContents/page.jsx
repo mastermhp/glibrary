@@ -39,16 +39,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import '../../../app/custom-styles.css'
-// import { CategoryFilter } from './components/CategoryFilter'
-// import { hashtags } from './data/hashtags'
-// import { HashtagFilter } from './components/HashtagFilter'
-// import { ContentGrid } from './components/ContentGrid'
-// import { getPublishedContents } from '../../lib/api'
 import { CategoryFilter } from '@/app/components/CategoryFilter'
 import { hashtags } from '@/app/data/hashtags'
 import { HashtagFilter } from '@/app/components/HashtagFilter'
 import { ContentGrid } from '@/app/components/ContentGrid'
-import { getPublishedContents } from '../../../../lib/api'
+import { getAllContents,  } from '../../../../lib/api'
 
 export default function Contents() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -63,7 +58,7 @@ export default function Contents() {
 
   useEffect(() => {
     const fetchContents = async () => {
-      const fetchedContents = await getPublishedContents()
+      const fetchedContents = await getAllContents()
       setContents(fetchedContents)
     }
     fetchContents()
@@ -134,17 +129,6 @@ export default function Contents() {
             
             <div className="max-w-7xl mx-auto text-center">
             
-            {/* <Button
-              onClick={refreshContent}
-              className="mt-4 bg-red-500 hover:bg-red-600 text-white"
-            >
-              Refresh Content
-            </Button> */}
-            {/* <Link href="/signup" passHref>
-              <Button className="mt-4 bg-red-500 hover:bg-red-600 text-white">
-                Admin Sign Up
-              </Button> */}
-            {/* </Link> */}
           </div>
           </motion.div>
         </header>
