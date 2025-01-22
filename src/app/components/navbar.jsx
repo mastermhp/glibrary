@@ -24,7 +24,7 @@ export function NavBar() {
             <>
               <span className="text-white">Welcome, {user.firstName}!</span>
               {user.primaryEmailAddress?.emailAddress ===
-                process.env.NEXT_PUBLIC_ADMIN_EMAIL && "parashmehedihasan@gmail.com" && (
+                process.env.NEXT_PUBLIC_ADMIN_EMAIL && (
                 <Link href="/admin" className="text-white">
                   Admin Panel
                 </Link>
